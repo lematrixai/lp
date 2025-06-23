@@ -154,7 +154,7 @@ export function Header() {
                 <NavbarButton
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="primary"
-                  className="w-full bg-primary text-white"
+                  className="w-full bg-primary rounded-sm text-white"
                 >
                   Sign Up
                 </NavbarButton>
