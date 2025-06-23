@@ -191,13 +191,25 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 100 }}
           className={cn(
-            "fixed left-0 right-0 top-[56px] z-50 flex h-[calc(100vh-56px)] w-screen flex-col items-start justify-start gap-4 bg-white px-4 py-8 dark:bg-neutral-950 overflow-y-auto scrollbar-none",
-            className,
+            "fixed left-0 right-0 top-[56px] z-50 flex flex-col h-[calc(100vh-56px)] w-screen bg-white/80 dark:bg-neutral-950/90 px-0 py-0 scrollbar-none lg:hidden",
+            className
           )}
+          style={{
+            backgroundImage: 'url(/assets/pattern/senjaro-pattern.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: 'rgba(255,255,255,0.85)',
+          }}
         >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 bg-white/80 backdrop-blur-sm"
+          />
           <style>{`
             .scrollbar-none::-webkit-scrollbar { display: none; }
           `}</style>
+          {/* Children: scrollable content and button row */}
           {children}
         </motion.div>
       )}

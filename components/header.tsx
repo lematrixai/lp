@@ -14,6 +14,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuTrigger, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 
 export function Header() {
   const navItems = [
@@ -125,40 +126,40 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </MobileNavHeader>
-
+        
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            <div className="flex-1 flex flex-col w-full px-4 text-xl font-bold ">
+            {/* Scrollable nav links */}
+              <div className="flex-1 flex flex-col w-full px-4 text-xl font-bold overflow-hidden py-6">
               {navItems.map((item, idx) => (
                 <a
                   key={`mobile-link-${idx}`}
                   href={item.link}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-neutral-600 dark:text-neutral-300 mb-4"
+                  className="relative text-neutral-600 dark:text-neutral-300 my-2"
                 >
                   <span className="block hover:underline">{item.name}</span>
                 </a>
               ))}
             </div>
-            <div className="w-full px-4 pb-6">
-              <div className="flex w-full flex-row gap-4">
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="primary"
-                  className="w-full bg-none border border-primary rounded-sm"
-                >
-                  Login
-                </NavbarButton>
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="primary"
-                  className="w-full bg-primary rounded-sm text-white"
-                >
-                  Sign Up
-                </NavbarButton>
-              </div>
+            {/* Button row at the bottom of the menu */}
+            <div className="w-full px-4 pb-6 flex flex-row gap-4">
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full bg-none border border-primary rounded-sm"
+              >
+                Login
+              </NavbarButton>
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full bg-primary rounded-sm text-white"
+              >
+                Sign Up
+              </NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>

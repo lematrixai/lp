@@ -3,22 +3,24 @@ import React from 'react'
 import { Button } from './ui/button'
 import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import dynamic from 'next/dynamic'
+import WorldMap from '@/components/ui/world-map'
 
 const HeroSection = () => {
   const router = useRouter()
   return (
-    <main className="relative min-h-screen bg-primary/10 dark:bg-black flex flex-col md:flex-row items-center justify-center px-4 md:px-12 py-12 gap-8 overflow-hidden">
+    <main className="relative min-h-screen bg-primary/5 dark:bg-black flex flex-col md:flex-row items-center justify-center px-4 md:px-12 py-12 gap-8 overflow-hidden">
       {/* Grid Line Background */}
       <div
         className={cn(
           "absolute inset-0 z-1",
-          "[background-size:90px_90px] opacity-60",
+          "[background-size:90px_90px] opacity-50",
           "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
           "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
         )}
       />
       {/* Radial gradient mask for faded look */}
-      {/* <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div> */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-primary/10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
       {/* Left Side */}
       <div className="flex-1 flex flex-col h-full min-h-[600px] justify-between max-w-xl">
         {/* Top Spacer */}
@@ -53,21 +55,36 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      {/* Right Side: Modern Payment Illustration */}
+      {/* Right Side: World Map Demo */}
       <div className="flex-1 flex items-center justify-center w-full max-w-lg z-20">
-        {/* Example SVG illustration, you can replace with your own or a more complex one */}
-        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto max-h-[340px] drop-shadow-xl">
-          <rect x="40" y="60" width="320" height="180" rx="24" fill="#fff" className="dark:fill-neutral-900"/>
-          <rect x="60" y="100" width="120" height="24" rx="8" fill="#6366f1" fillOpacity="0.2"/>
-          <rect x="60" y="140" width="80" height="16" rx="8" fill="#6366f1" fillOpacity="0.1"/>
-          <rect x="200" y="100" width="120" height="24" rx="8" fill="#10b981" fillOpacity="0.2"/>
-          <rect x="200" y="140" width="80" height="16" rx="8" fill="#10b981" fillOpacity="0.1"/>
-          <rect x="60" y="180" width="260" height="12" rx="6" fill="#e5e7eb" className="dark:fill-neutral-800"/>
-          <circle cx="320" cy="80" r="16" fill="#6366f1" fillOpacity="0.15"/>
-          <circle cx="80" cy="80" r="10" fill="#10b981" fillOpacity="0.15"/>
-          <rect x="120" y="200" width="160" height="32" rx="16" fill="#6366f1" fillOpacity="0.08"/>
-          <rect x="160" y="208" width="80" height="16" rx="8" fill="#6366f1" fillOpacity="0.15"/>
-        </svg>
+        <WorldMap
+          dots={[
+            {
+              start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
+              end: { lat: 34.0522, lng: -118.2437 },   // Los Angeles
+            },
+            {
+              start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
+              end: { lat: -15.7975, lng: -47.8919 },   // Brazil (Brasília)
+            },
+            {
+              start: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+              end: { lat: 38.7223, lng: -9.1393 },     // Lisbon
+            },
+            {
+              start: { lat: 51.5074, lng: -0.1278 },  // London
+              end: { lat: 28.6139, lng: 77.209 },      // New Delhi
+            },
+            {
+              start: { lat: 28.6139, lng: 77.209 },   // New Delhi
+              end: { lat: 43.1332, lng: 131.9113 },    // Vladivostok
+            },
+            {
+              start: { lat: 28.6139, lng: 77.209 },   // New Delhi
+              end: { lat: -1.2921, lng: 36.8219 },     // Nairobi
+            },
+          ]}
+        />
       </div>
     </main>
   )
