@@ -1,11 +1,16 @@
-import { Button } from "@/components/ui/button";
+import { Header } from "@/components/header";
+import HeroSection from "@/components/hero-section";
 
 export default function Home() {
   return (
+   <div className="flex flex-col min-h-screen">
+   <Header />
+   <HeroSection/>
+   <>
    <div>
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <h1 className="h-screen">Hello</h1>
+   </div>
+   </>
    </div>
   );
 }
