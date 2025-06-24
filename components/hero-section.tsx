@@ -56,7 +56,7 @@ const HeroSection = () => {
         </div>
       </div>
       {/* Right Side: World Map Demo */}
-      <div className="flex-1 flex items-center justify-center w-full max-w-lg z-20 max-md:hidden">
+      <div className="flex-1 flex items-start justify-center w-full max-w-lg z-20 max-md:hidden">
         <WorldMap
           dots={[
             {
