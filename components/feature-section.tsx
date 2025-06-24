@@ -109,7 +109,7 @@ export function FeaturesSection() {
                           <div
                             className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} p-3 text-white flex items-center justify-center`}
                           >
-                            <feature.icon className="w-6 h-6" />
+                            <feature.icon className="w-6 h-6 text-white" />
                           </div>
                         </div>
                         {/* Typography */}
