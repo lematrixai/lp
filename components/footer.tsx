@@ -13,6 +13,7 @@ export function Footer() {
             <a href="#" aria-label="Twitter"><svg className="w-5 h-5 text-gray-400 hover:text-white" /></a>
             <a href="#" aria-label="LinkedIn"><svg className="w-5 h-5 text-gray-400 hover:text-white" /></a>
           </div> */}
+          <div className="flex gap-3 mt-2"></div>
         </div>
         {/* About */}
         <div className="flex flex-col gap-1 md:w-1/4 text-left">

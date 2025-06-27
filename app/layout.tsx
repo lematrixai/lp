@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Poppins, Montserrat, Outfit } from "next/font/google";
 import "./globals.css";
+import IntercomProvider from "@/components/intercom";
 
 
 // Load fonts as CSS variables
@@ -144,6 +145,7 @@ export default function RootLayout({
         className={`${poppins.variable} antialiased`}
       >
         {children}
+        <IntercomProvider />
       </body>
     </html>
   );
